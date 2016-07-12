@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		flash[:success] = "Welcome to the Sample App!"
+      log_in @user
   		redirect_to @user
   	else
   		flash.now[:danger] = "Failed to create user. Please check the fields."
